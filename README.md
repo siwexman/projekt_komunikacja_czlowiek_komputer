@@ -1,0 +1,1 @@
+# projekt_komunikacja_czlowiek_komputer
