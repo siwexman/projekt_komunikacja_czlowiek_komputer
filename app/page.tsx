@@ -1,11 +1,11 @@
 import Header from './components/Header';
-import CraftWeb from './components/CraftWeb/CraftWeb';
+import PageBuilder from './components/PageBuilder/PageBuilder';
 
 export default function Home() {
     return (
         <>
             <Header />
-            <CraftWeb />
+            <PageBuilder />
         </>
     );
 }
