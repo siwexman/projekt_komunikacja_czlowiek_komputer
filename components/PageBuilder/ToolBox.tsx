@@ -15,6 +15,7 @@ import Text from './user/Text';
 import Container from './user/Container';
 import Card from './user/Card';
 import SettingsPanel from './SettingsPanel';
+import Link from 'next/link';
 
 export default function ToolBox() {
     const { connectors, query } = useEditor();
@@ -70,7 +71,12 @@ export default function ToolBox() {
                     {/* <ToolBoxButton text="More" svg={<Bold />} /> */}
                     <SettingsPanel />
                 </div>
-                <ToolBoxButton text="Add Block Programming" svg={<Puzzle />} />
+                <Link href={'/programming'}>
+                    <ToolBoxButton
+                        text="Add Block Programming"
+                        svg={<Puzzle />}
+                    />
+                </Link>
             </div>
         </div>
     );

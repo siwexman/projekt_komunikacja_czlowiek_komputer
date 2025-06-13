@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { Inter, Roboto_Mono } from 'next/font/google';
 import './globals.css';
+import Header from '../components/Header';
 
 const interSans = Inter({
     subsets: ['latin'],
@@ -27,6 +28,7 @@ export default function RootLayout({
             <body
                 className={`${interSans.className} ${robotoMono.className} antialiased`}
             >
+                <Header />
                 {children}
             </body>
         </html>
