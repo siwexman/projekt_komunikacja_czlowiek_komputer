@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Inter, Roboto_Mono } from 'next/font/google';
 import './globals.css';
 import Header from '../components/Header';
+import { Toaster } from '@/components/ui/sonner';
 
 const interSans = Inter({
     subsets: ['latin'],
@@ -30,6 +31,7 @@ export default function RootLayout({
             >
                 <Header />
                 <main className="grow">{children}</main>
+                <Toaster position="top-center" />
             </body>
         </html>
     );

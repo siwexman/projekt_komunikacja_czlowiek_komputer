@@ -1,7 +1,7 @@
 import { Label } from '@/components/ui/label';
 import { Slider } from '@/components/ui/slider';
 import { useNode } from '@craftjs/core';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import ContentEditable from 'react-contenteditable';
 
 export default function Text({
@@ -55,7 +55,7 @@ function TextSettings() {
     return (
         <>
             <form>
-                <Label>Font size</Label>
+                <Label className="py-2">Font size: {fontSize}</Label>
                 <Slider
                     defaultValue={[fontSize]}
                     step={1}

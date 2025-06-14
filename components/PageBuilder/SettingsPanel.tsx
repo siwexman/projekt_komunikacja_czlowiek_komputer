@@ -26,7 +26,7 @@ export default function SettingsPanel() {
     return (
         selected && (
             <div className="bg-gray-100 p-2">
-                <div>
+                <div className="flex flex-col gap-4">
                     <div className="flex justify-between">
                         <div>Selected:</div>
                         <div className="px-2 py-1 bg-slate-500 rounded">

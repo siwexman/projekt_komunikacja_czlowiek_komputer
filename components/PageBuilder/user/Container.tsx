@@ -9,9 +9,9 @@ export default function Container({
     background = '#cacaca',
     padding = 16,
 }: {
-    children: ReactNode;
-    background: string;
-    padding: number;
+    children?: ReactNode;
+    background?: string;
+    padding?: number;
 }) {
     const {
         connectors: { connect, drag },
@@ -41,31 +41,57 @@ export function ContainerSettings() {
     return (
         <div>
             <form>
-                <Label htmlFor="colorPicker">Background</Label>
+                <Label htmlFor="colorPicker" className="py-2">
+                    Background:{' '}
+                    <input
+                        defaultValue={background.slice(1)}
+                        onChange={e =>
+                            setProp(
+                                props =>
+                                    (props.background = '#' + e.target.value)
+                            )
+                        }
+                    />
+                </Label>
                 <HexColorPicker
+                    className="m-auto"
                     id="colorPicker"
-                    color={background || '#000'}
+                    color={background || '#000000'}
                     onChange={color =>
                         setProp(props => (props.background = color))
                     }
                 />
             </form>
             <form>
-                <Label htmlFor="paddingPicker">Padding</Label>
+                <Label htmlFor="paddingPicker" className="py-2">
+                    Padding: {padding}
+                </Label>
                 <Slider
                     id="paddingPicker"
-                    defaultValue={padding}
+                    defaultValue={[padding]}
+                    step={1}
+                    min={0}
+                    max={24}
                     onValueChange={value =>
                         setProp(props => (props.padding = value))
                     }
                 />
+                {/* <Slider
+                    defaultValue={[fontSize]}
+                    step={1}
+                    min={7}
+                    max={50}
+                    onValueChange={value =>
+                        setProp(props => (props.fontSize = value))
+                    }
+                /> */}
             </form>
         </div>
     );
 }
 
 export const ContainerDefaultProps = {
-    background: '#ffffff',
+    background: '#cacaca',
     padding: 4,
 };
 

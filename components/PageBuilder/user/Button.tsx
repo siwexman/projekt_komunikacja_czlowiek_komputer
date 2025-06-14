@@ -1,15 +1,31 @@
 import { Label } from '@/components/ui/label';
 import { RadioGroup } from '@/components/ui/radio-group';
 import { useNode } from '@craftjs/core';
-import { RadioGroupItem } from '@radix-ui/react-radio-group';
+import { RadioGroupItem } from '@/components/ui/radio-group';
 import { ReactNode } from 'react';
 
-export default function Button({ children }: { children?: ReactNode }) {
+const sizeStyles = {
+    small: { fontSize: 12, padding: 8 },
+    medium: { fontSize: 16, padding: 16 },
+    large: { fontSize: 20, padding: 24 },
+};
+
+export default function Button({
+    children,
+    size,
+}: {
+    children?: ReactNode;
+    size: 'small' | 'medium' | 'large';
+}) {
     const {
         connectors: { connect, drag },
     } = useNode();
+
+    const style = sizeStyles[size];
+
     return (
         <button
+            style={style}
             ref={ref => connect(drag(ref!))}
             className="p-4 rounded-2xl bg-[#2E8BED] text-white font-semibold"
         >
@@ -27,8 +43,16 @@ function ButtonSettings() {
     return (
         <div>
             <form>
-                <Label htmlFor="radio_size">Size</Label>
-                <RadioGroup name="radio_size">
+                <Label htmlFor="radio_size" className="py-2">
+                    Size:
+                </Label>
+                <RadioGroup
+                    defaultValue={props.size}
+                    name="radio_size"
+                    onChange={e =>
+                        setProp(props => (props.size = e.target.value))
+                    }
+                >
                     <div className="flex items-center space-x-2">
                         <RadioGroupItem value="small" id="size_one" />
                         <Label htmlFor="size_one">Small</Label>
