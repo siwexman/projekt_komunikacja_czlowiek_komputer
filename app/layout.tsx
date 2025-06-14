@@ -26,10 +26,10 @@ export default function RootLayout({
     return (
         <html lang="en">
             <body
-                className={`${interSans.className} ${robotoMono.className} antialiased`}
+                className={`${interSans.className} ${robotoMono.className} antialiased h-screen overflow-hidden flex flex-col`}
             >
                 <Header />
-                {children}
+                <main className="grow">{children}</main>
             </body>
         </html>
     );

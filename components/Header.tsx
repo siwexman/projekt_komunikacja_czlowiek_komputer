@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 export default function Header() {
     return (
         <header className="shadow-lg drop-shadow">
@@ -8,9 +10,9 @@ export default function Header() {
                     </div>
                     <ul className="text-lg grid grid-cols-3 divide-[#2E8BED] divide-x-2 text-center w-full">
                         <li>
-                            <a href="#" className="p-2">
+                            <Link href="/" className="p-2">
                                 Home
-                            </a>
+                            </Link>
                         </li>
                         <li>
                             <a href="#" className="p-2">
